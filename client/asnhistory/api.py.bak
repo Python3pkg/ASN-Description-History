@@ -33,7 +33,7 @@ def get_all_descriptions(asn):
                 ]
     """
     all_descrs = r.hgetall(asn)
-    dates = sorted(list(all_descrs.keys()), reverse=True)
+    dates = sorted(all_descrs.keys(), reverse=True)
     to_return = []
     for date in dates:
         d = dateutil.parser.parse(date)

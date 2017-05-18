@@ -1,4 +1,4 @@
-import api
+from . import api
 api.__prepare()
 
-from api import *
+from .api import *

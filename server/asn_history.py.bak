@@ -9,7 +9,7 @@ from pubsublogger import publisher
 import re
 import redis
 import time
-import urllib.request, urllib.parse, urllib.error
+import urllib
 
 sleep_timer = 3600
 redis_host = '127.0.0.1'
@@ -30,7 +30,7 @@ def fetch(url, directory):
     old_dir = os.path.join(directory, 'old')
 
     filename = os.path.join(temp_dir, 'autnums.html')
-    urllib.request.urlretrieve('http://www.cidr-report.org/as2.0/autnums.html', filename)
+    urllib.urlretrieve('http://www.cidr-report.org/as2.0/autnums.html', filename)
     f = open(filename).read()
     update_raw = re.sub('[\n()]', '',
             re.findall('File last modified at (.*)</I>', f , re.S)[0])
